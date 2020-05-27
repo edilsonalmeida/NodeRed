@@ -1,0 +1,149 @@
+[
+    {
+        "id": "6cd7f89f.50c1b8",
+        "type": "tab",
+        "label": "SWITCH",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "df1c3338.8eec1",
+        "type": "switch",
+        "z": "6cd7f89f.50c1b8",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "12",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "12",
+                "vt": "num",
+                "v2": "22",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "22",
+                "vt": "num",
+                "v2": "29",
+                "v2t": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 350,
+        "y": 180,
+        "wires": [
+            [
+                "eafbbea4.7069d"
+            ],
+            [
+                "f66b5c4a.32cd2"
+            ],
+            [
+                "ec18d248.03e4e"
+            ]
+        ]
+    },
+    {
+        "id": "cd5ed771.ddfea8",
+        "type": "inject",
+        "z": "6cd7f89f.50c1b8",
+        "name": "Temperatura",
+        "topic": "",
+        "payload": "8",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 110,
+        "y": 180,
+        "wires": [
+            [
+                "df1c3338.8eec1"
+            ]
+        ]
+    },
+    {
+        "id": "eafbbea4.7069d",
+        "type": "debug",
+        "z": "6cd7f89f.50c1b8",
+        "name": "< 12",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 550,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "f66b5c4a.32cd2",
+        "type": "debug",
+        "z": "6cd7f89f.50c1b8",
+        "name": "12 ~ 22",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 560,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ec18d248.03e4e",
+        "type": "debug",
+        "z": "6cd7f89f.50c1b8",
+        "name": "22 ~ 29",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 560,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "ac247e7.bfe088",
+        "type": "comment",
+        "z": "6cd7f89f.50c1b8",
+        "name": "Injecttion type number",
+        "info": "",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fb29ef81.91f0e",
+        "type": "comment",
+        "z": "6cd7f89f.50c1b8",
+        "name": "Switch Output Node",
+        "info": "",
+        "x": 350,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "54c7482.308d7b8",
+        "type": "comment",
+        "z": "6cd7f89f.50c1b8",
+        "name": "Debug Node",
+        "info": "",
+        "x": 570,
+        "y": 60,
+        "wires": []
+    }
+]

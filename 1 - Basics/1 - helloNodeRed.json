@@ -1,0 +1,71 @@
+[
+    {
+        "id": "521425ea.0e912c",
+        "type": "tab",
+        "label": "HELLO NODE RED",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b1b11140.4e4ef",
+        "type": "inject",
+        "z": "521425ea.0e912c",
+        "name": "",
+        "topic": "",
+        "payload": "Hello Node-RED!",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 160,
+        "y": 180,
+        "wires": [
+            [
+                "f2f2649a.0d0d98"
+            ]
+        ]
+    },
+    {
+        "id": "f2f2649a.0d0d98",
+        "type": "debug",
+        "z": "521425ea.0e912c",
+        "name": "",
+        "active": true,
+        "console": "false",
+        "complete": "false",
+        "x": 390,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "8f0ebbf6.040bd8",
+        "type": "comment",
+        "z": "521425ea.0e912c",
+        "name": "Injection node with String",
+        "info": "Utilizado para inserir valores de diferentes tipos ",
+        "x": 150,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d6aa6f08.ed694",
+        "type": "comment",
+        "z": "521425ea.0e912c",
+        "name": "Debug node with payload",
+        "info": "utilizado para saídas no painel de debug à direita.",
+        "x": 390,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "720d7780.d06708",
+        "type": "comment",
+        "z": "521425ea.0e912c",
+        "name": "comment node",
+        "info": "Utilizado para explicar o que ocorre no fluxo.",
+        "x": 280,
+        "y": 100,
+        "wires": []
+    }
+]

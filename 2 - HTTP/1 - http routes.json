@@ -1,0 +1,290 @@
+[
+    {
+        "id": "1d130efe.c717e1",
+        "type": "tab",
+        "label": "HTTP",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "5aa8ac81.d55324",
+        "type": "http in",
+        "z": "1d130efe.c717e1",
+        "name": "/ibm",
+        "url": "/ibm",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 100,
+        "wires": [
+            [
+                "768ccdb7.09b014"
+            ]
+        ]
+    },
+    {
+        "id": "2074beed.8783a2",
+        "type": "http response",
+        "z": "1d130efe.c717e1",
+        "name": "HTTP RESPONSE",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "768ccdb7.09b014",
+        "type": "http request",
+        "z": "1d130efe.c717e1",
+        "name": "HTTP REQUEST",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": false,
+        "url": "https://www.ibm.com/",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "x": 470,
+        "y": 100,
+        "wires": [
+            [
+                "2074beed.8783a2",
+                "d7a87c1a.72b9f"
+            ]
+        ]
+    },
+    {
+        "id": "13083e89.b3a551",
+        "type": "http in",
+        "z": "1d130efe.c717e1",
+        "name": "/PrimeiroEndPoint",
+        "url": "/PrimeiroEndPoint",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 250,
+        "y": 260,
+        "wires": [
+            [
+                "a91b340d.4f37c8"
+            ]
+        ]
+    },
+    {
+        "id": "c7c6562d.90e138",
+        "type": "http response",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "a91b340d.4f37c8",
+        "type": "function",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "func": "msg.payload = \"Este é meu primeiro endpoint\"\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "c7c6562d.90e138",
+                "59969acd.5adf84"
+            ]
+        ]
+    },
+    {
+        "id": "d8b5f014.246ef",
+        "type": "http in",
+        "z": "1d130efe.c717e1",
+        "name": "/objeto",
+        "url": "/objeto",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 210,
+        "y": 420,
+        "wires": [
+            [
+                "a915660a.d335e8"
+            ]
+        ]
+    },
+    {
+        "id": "749ee5b9.6d682c",
+        "type": "http response",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 770,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "a915660a.d335e8",
+        "type": "function",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "func": "objeto = {\n    mensagem:\"mensagem\",\n    atributoString : \"atributo1\",\n    atributoInt : 23\n}\nmsg.payload = objeto;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 420,
+        "wires": [
+            [
+                "749ee5b9.6d682c",
+                "7ad97c00.c55044"
+            ]
+        ]
+    },
+    {
+        "id": "d7a87c1a.72b9f",
+        "type": "debug",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "59969acd.5adf84",
+        "type": "debug",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 690,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "7ad97c00.c55044",
+        "type": "debug",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "7c5d8252.6ea94c",
+        "type": "http in",
+        "z": "1d130efe.c717e1",
+        "name": "/objetoParam",
+        "url": "/objetoParam",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 230,
+        "y": 580,
+        "wires": [
+            [
+                "1d928eb.fa4c971"
+            ]
+        ]
+    },
+    {
+        "id": "8fa820f.0d8a2e",
+        "type": "http response",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 790,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1d928eb.fa4c971",
+        "type": "function",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "func": "\nobjeto = {\n    mensagem:\"mensagem\",\n    atributoString : \"atributo1\",\n    atributoInt : 23,\n    nomeParam: msg.req.query.nomeParam,\n    idadeParam: msg.req.query.idadeParam\n}\nmsg.payload = objeto;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 470,
+        "y": 580,
+        "wires": [
+            [
+                "8fa820f.0d8a2e",
+                "49588681.acf958"
+            ]
+        ]
+    },
+    {
+        "id": "49588681.acf958",
+        "type": "debug",
+        "z": "1d130efe.c717e1",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7a15e786.02c808",
+        "type": "comment",
+        "z": "1d130efe.c717e1",
+        "name": "HTTP IN NODE",
+        "info": "Cria Rota acessível (ENDPOINT)",
+        "x": 240,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "30a5c74d.d3f808",
+        "type": "comment",
+        "z": "1d130efe.c717e1",
+        "name": "HTTP REQUEST NODE",
+        "info": "Faz uma requisição HTTP\n",
+        "x": 480,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2f04b38b.ccd97c",
+        "type": "comment",
+        "z": "1d130efe.c717e1",
+        "name": "HTTP RESPONSE NODE",
+        "info": "Faz uma requisição HTTP\n",
+        "x": 730,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "9fc9d8d1.043a48",
+        "type": "comment",
+        "z": "1d130efe.c717e1",
+        "name": "DEBUG NODE",
+        "info": "Faz uma requisição HTTP\n",
+        "x": 780,
+        "y": 180,
+        "wires": []
+    }
+]

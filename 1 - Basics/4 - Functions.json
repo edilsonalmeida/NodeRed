@@ -1,0 +1,228 @@
+[
+    {
+        "id": "3e98f3a7.57d16c",
+        "type": "tab",
+        "label": "FUNCTION",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "2300658f.49345a",
+        "type": "template",
+        "z": "3e98f3a7.57d16c",
+        "name": "FRASE",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Está {{payload.status}} hein? Me faz lembrar {{payload.cor}} !",
+        "output": "str",
+        "x": 740,
+        "y": 200,
+        "wires": [
+            [
+                "8ca80763.558a98"
+            ]
+        ]
+    },
+    {
+        "id": "8ca80763.558a98",
+        "type": "debug",
+        "z": "3e98f3a7.57d16c",
+        "name": "RESULTADO",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 910,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "bb50702a.3539f",
+        "type": "switch",
+        "z": "3e98f3a7.57d16c",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "lt",
+                "v": "12",
+                "vt": "str"
+            },
+            {
+                "t": "btwn",
+                "v": "12",
+                "vt": "num",
+                "v2": "22",
+                "v2t": "num"
+            },
+            {
+                "t": "btwn",
+                "v": "22",
+                "vt": "num",
+                "v2": "29",
+                "v2t": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 4,
+        "x": 350,
+        "y": 200,
+        "wires": [
+            [
+                "ece6ead2.05d9a8"
+            ],
+            [
+                "fad38cab.e6477"
+            ],
+            [
+                "57bce683.bb5ac8"
+            ],
+            [
+                "fe4d84a6.4722c8"
+            ]
+        ]
+    },
+    {
+        "id": "365bb9ab.f18dd6",
+        "type": "inject",
+        "z": "3e98f3a7.57d16c",
+        "name": "Temperatura",
+        "topic": "",
+        "payload": "8",
+        "payloadType": "num",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 200,
+        "wires": [
+            [
+                "bb50702a.3539f"
+            ]
+        ]
+    },
+    {
+        "id": "ece6ead2.05d9a8",
+        "type": "function",
+        "z": "3e98f3a7.57d16c",
+        "name": "",
+        "func": "temperatura = {\n    \"status\":\"um friozinho de São Paulo\",\n    \"cor\": \"branco\"\n}\nmsg.payload = temperatura\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 140,
+        "wires": [
+            [
+                "2300658f.49345a"
+            ]
+        ]
+    },
+    {
+        "id": "fad38cab.e6477",
+        "type": "function",
+        "z": "3e98f3a7.57d16c",
+        "name": "",
+        "func": "temperatura = {\n    \"status\":\"agradavel\",\n    \"cor\": \"azul\"\n}\nmsg.payload = temperatura\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 180,
+        "wires": [
+            [
+                "2300658f.49345a"
+            ]
+        ]
+    },
+    {
+        "id": "57bce683.bb5ac8",
+        "type": "function",
+        "z": "3e98f3a7.57d16c",
+        "name": "",
+        "func": "temperatura = {\n    \"status\":\"quente\",\n    \"cor\": \"laranja\"\n}\nmsg.payload = temperatura\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 220,
+        "wires": [
+            [
+                "2300658f.49345a"
+            ]
+        ]
+    },
+    {
+        "id": "fe4d84a6.4722c8",
+        "type": "function",
+        "z": "3e98f3a7.57d16c",
+        "name": "",
+        "func": "temperatura = {\n    \"status\":\"UM CALOR DA PARAÍBA\",\n    \"cor\": \"vermelho\"\n}\nmsg.payload = temperatura\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 570,
+        "y": 260,
+        "wires": [
+            [
+                "2300658f.49345a"
+            ]
+        ]
+    },
+    {
+        "id": "230e673b.eee5b8",
+        "type": "comment",
+        "z": "3e98f3a7.57d16c",
+        "name": "Injecttion type number",
+        "info": "",
+        "x": 140,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "3f4122e9.4c1dae",
+        "type": "comment",
+        "z": "3e98f3a7.57d16c",
+        "name": "Switch Output Node",
+        "info": "",
+        "x": 350,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "de04424.503f6c",
+        "type": "comment",
+        "z": "3e98f3a7.57d16c",
+        "name": "Debug Node",
+        "info": "",
+        "x": 910,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "c170e298.209aa",
+        "type": "comment",
+        "z": "3e98f3a7.57d16c",
+        "name": "Function Node",
+        "info": "",
+        "x": 560,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "fbe96a4d.fcaf38",
+        "type": "comment",
+        "z": "3e98f3a7.57d16c",
+        "name": "Template Node",
+        "info": "",
+        "x": 740,
+        "y": 60,
+        "wires": []
+    }
+]

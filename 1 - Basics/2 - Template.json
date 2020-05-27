@@ -1,0 +1,147 @@
+[
+    {
+        "id": "72da0427.d00a5c",
+        "type": "tab",
+        "label": "TEMPLATE",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "612b3425.4b6fdc",
+        "type": "inject",
+        "z": "72da0427.d00a5c",
+        "name": "",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 110,
+        "y": 120,
+        "wires": [
+            [
+                "263c575c.4d8f98"
+            ]
+        ]
+    },
+    {
+        "id": "1b6bd812.1a5808",
+        "type": "debug",
+        "z": "72da0427.d00a5c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 610,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "5f90c4de.217ccc",
+        "type": "inject",
+        "z": "72da0427.d00a5c",
+        "name": "NOME FACULDADE",
+        "topic": "",
+        "payload": "",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": "",
+        "x": 150,
+        "y": 180,
+        "wires": [
+            [
+                "3cc51e93.9fff32"
+            ]
+        ]
+    },
+    {
+        "id": "3cc51e93.9fff32",
+        "type": "template",
+        "z": "72da0427.d00a5c",
+        "name": "Template",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "A GALERA DA {{payload}} É TOP !",
+        "output": "str",
+        "x": 360,
+        "y": 180,
+        "wires": [
+            [
+                "5d95967e.236588"
+            ]
+        ]
+    },
+    {
+        "id": "5d95967e.236588",
+        "type": "debug",
+        "z": "72da0427.d00a5c",
+        "name": "debug do payload",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": true,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 590,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "263c575c.4d8f98",
+        "type": "template",
+        "z": "72da0427.d00a5c",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "This is the payload: {{payload}} !",
+        "output": "str",
+        "x": 360,
+        "y": 120,
+        "wires": [
+            [
+                "1b6bd812.1a5808"
+            ]
+        ]
+    },
+    {
+        "id": "a0321665.9e86e8",
+        "type": "comment",
+        "z": "72da0427.d00a5c",
+        "name": "Injection Node",
+        "info": "Utilizado para inserir valores de diferentes tipos ",
+        "x": 120,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "16d044b2.db73cb",
+        "type": "comment",
+        "z": "72da0427.d00a5c",
+        "name": "template Node",
+        "info": "utilizado para adicionar uma parte padrão a informações tramitadas na mensagem.",
+        "x": 360,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "f9bb168c.0bbb98",
+        "type": "comment",
+        "z": "72da0427.d00a5c",
+        "name": "Debug Node",
+        "info": "utilizado para saídas no painel de debug à direita.",
+        "x": 630,
+        "y": 60,
+        "wires": []
+    }
+]
