@@ -1,0 +1,268 @@
+[
+    {
+        "id": "2e50314e.73431e",
+        "type": "tab",
+        "label": "Dashboards",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "181fa6a0.ce1f69",
+        "type": "ui_text",
+        "z": "2e50314e.73431e",
+        "group": "8a247ead.7daa7",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temperatura",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 470,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "163d0765.250a19",
+        "type": "ui_gauge",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "group": "8a247ead.7daa7",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-10",
+        "max": "40",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 480,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "59a270f6.70abe",
+        "type": "ui_text",
+        "z": "2e50314e.73431e",
+        "group": "7b407d71.ff5114",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Umidade",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "x": 440,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "e1ea00d6.6a882",
+        "type": "ui_gauge",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "group": "7b407d71.ff5114",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 450,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "97d64736.b69228",
+        "type": "ui_text_input",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "label": "% Umidade",
+        "tooltip": "",
+        "group": "7b407d71.ff5114",
+        "order": 3,
+        "width": "6",
+        "height": "2",
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "",
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "59a270f6.70abe",
+                "e1ea00d6.6a882"
+            ]
+        ]
+    },
+    {
+        "id": "c6e08bdd.e99fc8",
+        "type": "ui_text_input",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "label": "Temperatura",
+        "tooltip": "",
+        "group": "8a247ead.7daa7",
+        "order": 3,
+        "width": "6",
+        "height": "2",
+        "passthru": true,
+        "mode": "number",
+        "delay": 300,
+        "topic": "",
+        "x": 110,
+        "y": 100,
+        "wires": [
+            [
+                "181fa6a0.ce1f69",
+                "163d0765.250a19"
+            ]
+        ]
+    },
+    {
+        "id": "b72a2e44.705d",
+        "type": "ui_text_input",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "label": "Texto para tradução",
+        "tooltip": "Digite aqui o texto",
+        "group": "e76a0c54.f3536",
+        "order": 0,
+        "width": "10",
+        "height": "1",
+        "passthru": true,
+        "mode": "text",
+        "delay": "0",
+        "topic": "",
+        "x": 160,
+        "y": 660,
+        "wires": [
+            [
+                "da22e497.d4ffe8",
+                "a786f2e.71e591"
+            ]
+        ]
+    },
+    {
+        "id": "f5e2b27f.953f4",
+        "type": "ui_text",
+        "z": "2e50314e.73431e",
+        "group": "e76a0c54.f3536",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Digite em Inglês",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 680,
+        "y": 660,
+        "wires": []
+    },
+    {
+        "id": "da22e497.d4ffe8",
+        "type": "watson-translator",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "en",
+        "destlang": "pt",
+        "password": "",
+        "apikey": "AaVHw_HHNp0KIPscmJcr1lDCH77JbbZ1oNaFJfhqJkiI",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "en",
+        "destlanghidden": "pt",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "",
+        "x": 430,
+        "y": 660,
+        "wires": [
+            [
+                "f5e2b27f.953f4",
+                "a786f2e.71e591"
+            ]
+        ]
+    },
+    {
+        "id": "a786f2e.71e591",
+        "type": "debug",
+        "z": "2e50314e.73431e",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 530,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "8a247ead.7daa7",
+        "type": "ui_group",
+        "z": "",
+        "name": "Temperatura",
+        "tab": "ff19b373.514e7",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "7b407d71.ff5114",
+        "type": "ui_group",
+        "z": "",
+        "name": "Umidade",
+        "tab": "ff19b373.514e7",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "e76a0c54.f3536",
+        "type": "ui_group",
+        "z": "",
+        "name": "Translate",
+        "tab": "ff19b373.514e7",
+        "order": 3,
+        "disp": false,
+        "width": "10",
+        "collapse": false
+    },
+    {
+        "id": "ff19b373.514e7",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Units",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]

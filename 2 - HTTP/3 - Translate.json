@@ -1,0 +1,227 @@
+[
+    {
+        "id": "fc3fcf80.4d35a",
+        "type": "tab",
+        "label": "Translator",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "7b698df0.42c8c4",
+        "type": "inject",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "topic": "",
+        "payload": "Olá Mundo",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "cb398169.de8b"
+            ]
+        ]
+    },
+    {
+        "id": "cb398169.de8b",
+        "type": "watson-translator",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "pt",
+        "destlang": "en",
+        "password": "",
+        "apikey": "AaVHw_HHNp0KIPscmJcr1lDCH77JbbZ1oNaFJfhqJkiI",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "pt",
+        "destlanghidden": "en",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "",
+        "x": 350,
+        "y": 60,
+        "wires": [
+            [
+                "704e1797.516728"
+            ]
+        ]
+    },
+    {
+        "id": "704e1797.516728",
+        "type": "debug",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 580,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "7e170ff9.f22e8",
+        "type": "http in",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "url": "traduz",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            [
+                "743679bb.928148"
+            ]
+        ]
+    },
+    {
+        "id": "743679bb.928148",
+        "type": "function",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "func": "resposta = msg.req.query.frase\n\nmsg.payload = resposta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 290,
+        "y": 160,
+        "wires": [
+            [
+                "1e436d7c.903543"
+            ]
+        ]
+    },
+    {
+        "id": "1e436d7c.903543",
+        "type": "watson-translator",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "action": "translate",
+        "basemodel": "ar-en",
+        "domain": "general",
+        "srclang": "pt",
+        "destlang": "en",
+        "password": "",
+        "apikey": "AaVHw_HHNp0KIPscmJcr1lDCH77JbbZ1oNaFJfhqJkiI",
+        "custom": "",
+        "domainhidden": "general",
+        "srclanghidden": "pt",
+        "destlanghidden": "en",
+        "basemodelhidden": "ar-en",
+        "customhidden": "",
+        "filetype": "forcedglossary",
+        "trainid": "",
+        "lgparams2": true,
+        "service-endpoint": "",
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "2b479483.3a235c",
+                "6f65ffde.6b848"
+            ]
+        ]
+    },
+    {
+        "id": "2b479483.3a235c",
+        "type": "debug",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 730,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "6f65ffde.6b848",
+        "type": "http response",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 730,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "7dd5ecee.cde904",
+        "type": "inject",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "topic": "",
+        "payload": "Olá",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 130,
+        "y": 340,
+        "wires": [
+            [
+                "560367f4.b2d3f8"
+            ]
+        ]
+    },
+    {
+        "id": "e9e379f3.482408",
+        "type": "debug",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "lang",
+        "targetType": "msg",
+        "x": 590,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "560367f4.b2d3f8",
+        "type": "watson-language-translator-identify",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "service-endpoint": "",
+        "x": 390,
+        "y": 340,
+        "wires": [
+            [
+                "e9e379f3.482408",
+                "7b192dd0.54b894"
+            ]
+        ]
+    },
+    {
+        "id": "7b192dd0.54b894",
+        "type": "debug",
+        "z": "fc3fcf80.4d35a",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "languages",
+        "targetType": "msg",
+        "x": 620,
+        "y": 380,
+        "wires": []
+    }
+]

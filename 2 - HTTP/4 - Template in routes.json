@@ -1,0 +1,72 @@
+[
+    {
+        "id": "b0a2a105.0f031",
+        "type": "tab",
+        "label": "TEMPLATE - 2",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "b40235da.f1d9c8",
+        "type": "http in",
+        "z": "b0a2a105.0f031",
+        "name": "",
+        "url": "/course",
+        "method": "get",
+        "upload": false,
+        "swaggerDoc": "",
+        "x": 110,
+        "y": 140,
+        "wires": [
+            [
+                "5280aa6f.840644"
+            ]
+        ]
+    },
+    {
+        "id": "3f998853.263318",
+        "type": "http response",
+        "z": "b0a2a105.0f031",
+        "name": "",
+        "statusCode": "",
+        "headers": {},
+        "x": 690,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "5a7253a4.78e57c",
+        "type": "template",
+        "z": "b0a2a105.0f031",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Bem vindo ao curso de {{payload.nome}} !\n\n\n{{#payload.alunos}}\n<br>\nOlá: {{nome}} !\n\nEu sei que você trabalha como {{ cargo }} e\nestamos no ano de {{ ano }}.\n\nSerá que você foi aprovado? \n{{#aprovado }}\n    Sim, Parabéns\n{{/aprovado }}\n\n{{^aprovado }}\n    Infelizmente não\n{{/aprovado }}\n\n<br>\n{{/payload.alunos}}",
+        "output": "str",
+        "x": 480,
+        "y": 140,
+        "wires": [
+            [
+                "3f998853.263318"
+            ]
+        ]
+    },
+    {
+        "id": "5280aa6f.840644",
+        "type": "function",
+        "z": "b0a2a105.0f031",
+        "name": "",
+        "func": "resposta = {\n    nome: 'Testes de Node Red',\n    alunos:\n    [\n     {\n         nome: 'Edilson',\n         cargo: 'Instrutor',\n         ano: 2020,\n         aprovado: true\n     },{\n         nome: 'Edilson 2',\n         cargo: 'Aluno',\n         ano: 2020,\n         aprovado: true\n     },{\n         nome: 'Edilson 3',\n         cargo: 'Dorminhoco',\n         ano: 2020,\n         aprovado: false\n     }\n    ]\n}\nmsg.payload = resposta;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 300,
+        "y": 140,
+        "wires": [
+            [
+                "5a7253a4.78e57c"
+            ]
+        ]
+    }
+]
