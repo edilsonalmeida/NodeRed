@@ -1,0 +1,209 @@
+[
+    {
+        "id": "a0be75f8.5e1e68",
+        "type": "tab",
+        "label": "Clima",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "e729b3ee.3452f",
+        "type": "openweathermap in",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "wtype": "current",
+        "lon": "",
+        "lat": "",
+        "city": "Elias Fausto",
+        "country": "Brasil",
+        "language": "pt",
+        "x": 320,
+        "y": 200,
+        "wires": [
+            [
+                "641ccd30.5cdc34",
+                "b86b8c03.f24d3",
+                "7869eede.161cb",
+                "6118fd6f.f16e14"
+            ]
+        ]
+    },
+    {
+        "id": "bc7c179e.447c08",
+        "type": "ui_gauge",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "group": "a23627ae.f88bf8",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Nuvens",
+        "label": "",
+        "format": "{{value}}",
+        "min": 0,
+        "max": 10,
+        "colors": [
+            "#00a6ff",
+            "#9ed1e6",
+            "#f9f9ff"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 740,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "c1d549b2.a76ff8",
+        "type": "ui_gauge",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "group": "d10fb81d.47d8d8",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "wave",
+        "title": "Umidade",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 740,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "33d418ae.055298",
+        "type": "ui_gauge",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "group": "5533ecc8.9190c4",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperatura",
+        "label": "oC",
+        "format": "{{value}}",
+        "min": "0",
+        "max": "40",
+        "colors": [
+            "#0085ff",
+            "#110fe6",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 750,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "641ccd30.5cdc34",
+        "type": "function",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "func": "msg.payload = msg.payload.tempc;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 200,
+        "wires": [
+            [
+                "33d418ae.055298"
+            ]
+        ]
+    },
+    {
+        "id": "b86b8c03.f24d3",
+        "type": "function",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "func": "msg.payload = msg.payload.humidity;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 260,
+        "wires": [
+            [
+                "c1d549b2.a76ff8"
+            ]
+        ]
+    },
+    {
+        "id": "7869eede.161cb",
+        "type": "function",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "func": "msg.payload = msg.payload.clouds;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 560,
+        "y": 320,
+        "wires": [
+            [
+                "bc7c179e.447c08"
+            ]
+        ]
+    },
+    {
+        "id": "6118fd6f.f16e14",
+        "type": "debug",
+        "z": "a0be75f8.5e1e68",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 540,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "a23627ae.f88bf8",
+        "type": "ui_group",
+        "name": "Group 3",
+        "tab": "f4082a40.6a8658",
+        "order": 3,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "d10fb81d.47d8d8",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "f4082a40.6a8658",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "5533ecc8.9190c4",
+        "type": "ui_group",
+        "z": "",
+        "name": "ELIAS FAUSTO",
+        "tab": "f4082a40.6a8658",
+        "disp": true,
+        "width": "6",
+        "collapse": false
+    },
+    {
+        "id": "f4082a40.6a8658",
+        "type": "ui_tab",
+        "z": "",
+        "name": "Elias Fausto",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    }
+]
